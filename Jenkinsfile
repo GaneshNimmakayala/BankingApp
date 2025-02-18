@@ -34,7 +34,7 @@ pipeline {
 		}
 		stage('Publish_to_Docker_Registry') {
 			steps {
-				sh "docker ganeshnimmakayala/banking-app:latest"
+				sh "docker push ganeshnimmakayala/banking-app:latest"
 			}
 		}
         stage('Deploy to Kubernetes Cluster') {
