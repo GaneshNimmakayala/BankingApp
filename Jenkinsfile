@@ -21,9 +21,9 @@ pipeline {
         stage('Build Docker Image') {
             steps {
 				sh 'docker version'
-				sh "docker build -t ganeshnimmakayala/Banking-app:${BUILD_NUMBER} ."
+				sh "docker build -t ganeshnimmakayala/banking-app:${BUILD_NUMBER} ."
 				sh 'docker image list'
-				sh "docker tag ganeshnimmakayala/Banking-app:${BUILD_NUMBER} ganeshnimmakayala/Banking-app:latest"
+				sh "docker tag ganeshnimmakayala/banking-app:${BUILD_NUMBER} ganeshnimmakayala/banking-app:latest"
             }
         }
 		stage('Login2DockerHub') {
@@ -34,7 +34,7 @@ pipeline {
 		}
 		stage('Publish_to_Docker_Registry') {
 			steps {
-				sh "docker ganeshnimmakayala/Banking-app:latest"
+				sh "docker ganeshnimmakayala/banking-app:latest"
 			}
 		}
         stage('Deploy to Kubernetes Cluster') {
